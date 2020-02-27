@@ -12,8 +12,15 @@ class PlanetsCollectionViewController: UICollectionViewController {
     
     let planetController = PlanetController()
 
+    // This gets called after the VC finishes setting up (loading) its views
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
     }
 
 

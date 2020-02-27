@@ -30,15 +30,14 @@ class SettingsViewController: UIViewController {
     }
 //MARK: - Actions
     @IBAction func changeShouldShowPluto(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func done(_ sender: Any) {
         let shouldShowPluto = shouldShowPlutoSwitch.isOn
         
         UserDefaults.standard.set(shouldShowPluto, forKey: .shouldShowPlutoKey)
-        
-        // Get that value, the key needs to be the same
+    }
+    
+    @IBAction func done(_ sender: Any) {
+         dismiss(animated: true, completion: nil)
+
     }
     
 
