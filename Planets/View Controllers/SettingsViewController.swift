@@ -7,22 +7,38 @@
 //
 
 import UIKit
-
+//MARK: - Extension & Static Var
+extension String {
+    static var shouldShowPlutoKey = "shouldShowPluto"
+}
+//MARK: - Class & UpdateViews()
 class SettingsViewController: UIViewController {
     @IBOutlet weak var shouldShowPlutoSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateViews()
 
-        // Do any additional setup after loading the view.
+    }
+    
+    func updateViews() {
+        let shouldShowPluto = UserDefaults.standard.bool(forKey: .shouldShowPlutoKey)
+        
+        shouldShowPlutoSwitch.isOn = shouldShowPluto
+        
     }
 //MARK: - Actions
     @IBAction func changeShouldShowPluto(_ sender: Any) {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func done(_ sender: Any) {
+        let shouldShowPluto = shouldShowPlutoSwitch.isOn
         
+        UserDefaults.standard.set(shouldShowPluto, forKey: .shouldShowPlutoKey)
+        
+        // Get that value, the key needs to be the same
     }
     
 
