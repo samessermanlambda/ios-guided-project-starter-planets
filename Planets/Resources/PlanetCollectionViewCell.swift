@@ -9,9 +9,23 @@
 import UIKit
 
 class PlanetCollectionViewCell: UICollectionViewCell {
-//MARK: - Outlets
-    
+
+    //MARK: - Outlets
     @IBOutlet weak var planetImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    var planet: Planet? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    func updateViews() {
+        
+        guard let planet = planet else { return }
+        
+        planetImageView.image = planet.image
+        nameLabel.text = planet.name
+    }
     
 }

@@ -9,23 +9,29 @@
 import UIKit
 
 class PlanetsCollectionViewController: UICollectionViewController {
+    
+    let planetController = PlanetController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
 
-    // MARK: UICollectionViewDataSource
+// MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return planetController.planets.count
     }
 
+//MARK: - Customize & Downcast
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlanetCell", for: indexPath) as? PlanetCollectionViewCell else { fatalError("Cell is not a PlanetCollectionViewCell") }
+                                            // indexPath.row == indexPath.item
+        let planet = planetController.planets[indexPath.item]
+        
+        // This will trigger the updateViews() method automatically
+        cell.planet = planet
     
         return cell
     }

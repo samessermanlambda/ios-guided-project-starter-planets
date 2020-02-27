@@ -32,8 +32,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="saturn" translatesAutoresizingMaskIntoConstraints="NO" id="f3R-oB-13b">
-                                            <rect key="frame" x="8" y="8" width="164" height="164"/>
+                                            <rect key="frame" x="8" y="8" width="164" height="164.00000000000023"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" constant="164" id="T6r-T9-RVK"/>
                                                 <constraint firstAttribute="width" secondItem="f3R-oB-13b" secondAttribute="height" multiplier="1:1" id="Thn-R8-lpd"/>
                                             </constraints>
                                         </imageView>
